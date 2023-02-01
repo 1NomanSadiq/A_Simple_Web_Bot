@@ -1,0 +1,173 @@
+{
+	"greetings": {
+		"intents": [
+			"hi",
+			"hey",
+			"hola",
+			"hello",
+			"hola",
+			"namaste"
+		],
+		"answer": [
+			"Hey!",
+			"Hi! Good to see you",
+			"Hi!, Hope you are doing well.",
+			"Hola",
+			"Halo",
+			"Hello",
+			"Hey! Thanks for checking in."
+		]
+	},
+	"bye": {
+		"intents": [
+			"bye",
+			"see you",
+			"seeya",
+			"ttyl",
+			"get lost",
+			"till next time",
+			"take care"
+		],
+		"answer": [
+			"See you!",
+			"Have a nice day",
+			"Bye! Come back again soon.",
+			"See you later, thanks for visiting",
+			"Have a nice day",
+			"Hope to see you again!",
+			"Bye Bye"
+		]
+	},
+	"thanks": {
+		"intents": [
+			"thank",
+			"ty",
+			"thx"
+		],
+		"answer": [
+			"Anytime!",
+			"Happy to help!",
+			"My Pleasure!",
+			"You are welcome!",
+			"Not a problem."
+		]
+	},
+	"jokes": {
+		"intents": [
+			"joke",
+			"make me laugh"
+		],
+		"answer": [
+			"A perfectionist walked into a bar...apparently, the bar wasn't set high enough",
+			"I ate a clock yesterday, it was very time-consuming",
+			"Never criticize someone until you've walked a mile in their shoes. That way, when you criticize them, they won't be able to hear you from that far away. Plus, you'll have their shoes.",
+			"The world tongue-twister champion just got arrested. I hear they're gonna give him a really tough sentence.",
+			"I own the world's worst thesaurus. Not only is it awful, it's awful.",
+			"What did the traffic light say to the car? \"Don't look now, I'm changing.\"",
+			"What do you call a snowman with a suntan? A puddle.",
+			"How does a penguin build a house? Igloos it together",
+			"I went to see the doctor about my short-term memory problems - the first thing he did was make me pay in advance",
+			"As I get older and I remember all the people I've lost along the way, I think to myself, maybe a career as a tour guide wasn't for me.",
+			"o what if I don't know what 'Armageddon' means? It's not the end of the world.",
+			"I'm afraid for the calendar. Its days are numbered.",
+			"My wife said I should do lunges to stay in shape. That would be a big step forward.",
+			"Why do fathers take an extra pair of socks when they go golfing? &quot;In case they get a hole in one!&quot;",
+			"Singing in the shower is fun until you get soap in your mouth. Then it's a soap opera.",
+			"What do a tick and the Eiffel Tower have in common?&quot;They're both Paris sites.&quot;",
+			"What do you call a fish wearing a bowtie? &quot;Sofishticated.&quot",
+			"How do you follow Will Smith in the snow? &quot;You follow the fresh prints.&quot;",
+			"If April showers bring May flowers, what do May flowers bring? &quot;Pilgrims.&quot;",
+			"I thought the dryer was shrinking my clothes. Turns out it was the refrigerator all along.",
+			"What do you call a factory that makes okay products? &quot;A satisfactory.",
+			"Dear Math, grow up and solve your own problems.",
+			"What did the janitor say when he jumped out of the closet? &quot;Supplies!&quot;",
+			"Have you heard about the chocolate record player? It sounds pretty sweet.",
+			"What did the ocean say to the beach? &quot;Nothing, it just waved.&quot;",
+			"Why do seagulls fly over the ocean? &quot;Because if they flew over the bay, we'd call them bagels.&quot;",
+			"I only know 25 letters of the alphabet. I don't know y.",
+			"How does the moon cut his hair? &quot;Eclipse it.&quot;",
+			"What did one wall say to the other? &quot;I'll meet you at the corner.&quot;",
+			"What did the zero say to the eight? &quot;That belt looks good on you.&quot;",
+			"A skeleton walks into a bar and says, 'Hey, bartender. I'll have one beer and a mop.'",
+			"Where do fruits go on vacation? &quot;Pear-is!&quot;",
+			"I asked my dog what's two minus two. He said nothing.",
+			"What did Baby Corn say to Mama Corn? &quot;Where's Pop Corn?&quot;",
+			"What's the best thing about Switzerland? &quot;I don't know, but the flag is a big plus.&quot;",
+			"What does a sprinter eat before a race? &quot;Nothing, they fast!&quot;",
+			"Where do you learn to make a banana split? &quot;Sundae school.&quot;",
+			"What has more letters than the alphabet? &quot;The post office!&quot;",
+			"Dad, did you get a haircut? &quot;No, I got them all cut!&quot;",
+			"What do you call a poor Santa Claus? &quot;St. Nickel-less.&quot;",
+			"I got carded at a liquor store, and my Blockbuster card accidentally fell out. The cashier said never mind.",
+			"Where do boats go when they're sick? &quot;To the boat doc.&quot;",
+			"I don't trust those trees. They seem kind of shady.",
+			"My wife is really mad at the fact that I have no sense of direction. So I packed up my stuff and right!",
+			"How do you get a squirrel to like you? Act like a nut.",
+			"Why don't eggs tell jokes? They'd crack each other up.",
+			"I don't trust stairs. They're always up to something.",
+			"What do you call someone with no body and no nose? Nobody knows.",
+			"Did you hear the rumor about butter? Well, I'm not going to spread it!"
+		]
+	},
+	"who am i": {
+		"intents": [
+			"who are you",
+			"what are you",
+			"who r u",
+			"what r u",
+			"about yourself",
+			"who made you",
+			"your name",
+			"how old are you",
+			"whats your age",
+			"what is your age"
+		],
+		"answer": [
+			"Hi I'm a Bot, I have no age. I am created by Bianca Hegner!. say 'Tell me a joke'"
+		]
+	},
+	"laugh": {
+		"intents": [
+			"haha",
+			"lol",
+			"lmao",
+			"rofl",
+			"funny"
+		],
+		"answer": [
+			"Did i make you laugh!?",
+			"Haha",
+			"That was funny",
+			"Glad I could make you laugh!"
+		]
+	},
+	"insult": {
+		"intents": [
+			"dumb",
+			"shut up",
+			"shutup"
+		],
+		"answer": [
+			"Well that hurts :("
+		]
+	},
+	"activity": {
+		"intents": [
+			"what are you doing",
+			"what are you upto",
+			"wassup"
+		],
+		"answer": [
+			"Talking to you :D"
+		]
+	},
+	"i am": {
+		"intents": [
+			"my name is"
+		],
+		"answer": [
+			"Pleasure meeting you!",
+			"Nice to meet you!"
+		]
+	}
+}

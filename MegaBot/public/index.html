@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <main>
+            <header>
+                <img src="./images/images.png" alt="">
+                <div>
+                    <h2>Chat with MegaBot</h2>
+                </div>
+            </header>
+            <ul id="chat">
+                <li class="you">
+                    <div class="entete">
+                        <span class="status green"></span>
+                        <h2>MegaBot</h2>
+                        <h3></h3>
+                    </div>
+                    <div class="triangle"></div>
+                    <div class="message">
+                        Welcome to MegaBot! If you are here for the first time Type <b>yes</b> to start booking a flight. You need to type <b>restart</b> if you accidentally refresh this page. Type <b>help</b> to know more!
+                    </div>
+                </li>
+            </ul>
+            <footer>
+                <input id="msg" placeholder="Type your message" autocomplete="false"></input>
+                <button id="sendBtn" type="submit">Send</button>
+            </footer>
+        </main>
+    </div>
+    <script>
+        var actualMsg = "";
+        var socket = new WebSocket('ws://localhost:8181/', 'chat');
+        var name = 'u1'
+        socket.onopen = function() {
+
+            name = "Guest" + Math.floor(Math.random() * Math.floor(700));
+            socket.send('{"type": "join", "name":" ' + name + '"}');
+        }
+        $('#msg').keypress(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                if (!$('#sendBtn').is('[disabled]')) {
+                    $('#sendBtn').trigger('click');
+                }
+            }
+        });
+        $('#sendBtn').on('click', function(e) {
+            e.preventDefault();
+            actualMsg = $('#msg').val();
+            msg = $('#msg').val().toLowerCase();
+            if (msg != '') {
+                socket.send('{"type": "msg", "msg": "' + msg + '"}');
+                $('#msg').val('');
+                $(this).delay(100).queue(function() {
+                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                    $(this).dequeue();
+                });
+            }
+
+        });
+        socket.onmessage = function(msg) {
+            var data = JSON.parse(msg.data);
+            var currentdate = new Date();
+            var format = currentdate.toLocaleString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: false
+            }) + ', Today ';
+            switch (data.type) {
+                case 'msg':
+                    if (data.name == "MegaBot") {
+                        var msg = $('<li class="you">' +
+                            '<div class="entete">' +
+                            '<span class="status green"></span>' +
+                            '<h2>' + data.name + '&nbsp' + '</h2>' +
+                            '<h3>' + format + '</h3>' +
+                            '</div>' +
+                            '<div class="triangle"></div>' +
+                            '<div class="message">' +
+                            data.msg +
+                            '</div>' +
+                            '</li>');
+                        var temp = $('<li class="you">' +
+                            '<div class="entete">' +
+                            '<span class="status green"></span>' +
+                            '<h2>' + data.name + '&nbsp' + '</h2>' +
+                            '<h3>' + format + '</h3>' +
+                            '</div>' +
+                            '<div class="triangle"></div>' +
+                            '<div class="message">' +
+                            'Typing...' +
+                            '</div>' +
+                            '</li>');
+                        $('#chat').append(temp);
+                        $('#sendBtn').prop('disabled', true)
+                        $('#chat').delay(2000).queue(function() {
+                            $(this).children().last().replaceWith(msg);
+                            $(this).delay(100).queue(function() {
+                                $('#chat').scrollTop($('#chat')[0].scrollHeight);
+                                $(this).dequeue();
+                            });
+                            $('#sendBtn').prop('disabled', false)
+                            $(this).dequeue();
+                        });
+                    } else {
+                        var msg = $('<li class="me">' +
+                            '<div class="entete">' +
+                            '<h3>' + format + '&nbsp' + '</h3>' +
+                            '<h2>' + data.name + '&nbsp' + '</h2>' +
+                            '<span class="status blue"></span>' +
+                            '</div>' +
+                            '<div class="triangle"></div>' +
+                            '<div class="message">' +
+                            actualMsg +
+                            '</div>' +
+                            '</li>');
+
+                        $('#chat').append(msg);
+                    }
+                    break;
+                case 'join':
+                    $('#users').empty();
+                    for (var i = 0; i < data.names.length; i++) {
+                        var user = $('<div>' + data.names[i] + '</div>');
+                        $('#users').append(user);
+                    }
+                    break;
+            }
+        };
+    </script>
+    </form>
+</body>
+
+</html>
